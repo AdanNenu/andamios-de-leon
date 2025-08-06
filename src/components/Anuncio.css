@@ -4,7 +4,7 @@
   width: 100%;
   height: auto;
 
-  /* Quita márgenes, rellenos y define box-sizing */
+  /* Quita márgenes, rellenos y define box-sizing */ 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
