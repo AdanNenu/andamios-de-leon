@@ -2,6 +2,7 @@
 import React from 'react';
 import './EstiloSecciones.css';
 import { motion } from 'framer-motion';
+import { useEffect } from "react";
 
 // Datos de productos separados arriba
 const productos = [
@@ -20,6 +21,11 @@ const productos = [
 ];
 
 const SeccionB = () => {
+	
+	useEffect(() => {
+	  window.scrollTo(0, 0);
+	}, []);
+
 return (
 <div className="seccion fondo-repetido">
     <header className="header">
