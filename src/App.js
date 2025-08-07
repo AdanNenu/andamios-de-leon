@@ -8,6 +8,9 @@ import Comida from './components/menu/Comida';
 import Bebidas from './components/menu/Bebidas';
 import Postres from './components/menu/Postres';
 
+import SeccionA from './components/secciones/SeccionA';
+import SeccionB from './components/secciones/SeccionB';
+import SeccionC from './components/secciones/SeccionC';
 
 
 function App() {
@@ -31,6 +34,12 @@ function App() {
         return <Bebidas />;
 	  case 'postres':
         return <Postres />;
+	  case 'secciona':
+        return <SeccionA />;
+      case 'seccionb':
+        return <SeccionB />;
+	  case 'seccionc':
+        return <SeccionC />; 		
       default:
         return <Home />;
     }

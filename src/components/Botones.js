@@ -4,6 +4,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import iconMaps from '../assets/ubicacion.png'; 
 import iconPhone from '../assets/telefono.png'; 
+import iconPhone2 from '../assets/telefono2.png'; 
+import iconWhats from '../assets/wa.png'; 
+import iconWhats2 from '../assets/wa2.png'; 
+import iconGmail from '../assets/gmail.png'; 
 import iconShare from '../assets/compartir.png'; 
 import iconReportModal from '../assets/informesModal.png'; 
 
@@ -28,15 +32,17 @@ let urlModalActualV = "";//para saber si se trata del anuncio, y agregar boton.
 
 //Constante
 const colapsarBotonera  = true; //Si es false, funciona con normalidad. Si es True, colapsar con la nueva logica
-const nombreNegocio = "Nombre del Negocio";//Se quema la variable del anuncio del cliente
+const nombreNegocio = "Andamios de León";//Se quema la variable del anuncio del cliente
 const version = "v2.3.3.1";//Se quema la variable del anuncio del cliente
 
 //Información del Cliente
-const telefonoWA = "+52";
-const telefonoMovil = "+524771234567";
-const correoGmail = "";
-const urlMaps = "https://maps.app.goo.gl/SDrNf61UzYTD5FaM8";
-const urlCalendy = "https://calendly.com/adanmendezeng/reservar-espacio";
+const telefonoWA = "+524775770721";
+const telefonoMovil = "+524771044078";
+const telefonoWA2 = "+524773248067";
+const telefonoMovil2 = "+524777115108";
+const correoGmail = "andamio.leon@hotmail.com";
+const urlMaps = "https://maps.app.goo.gl/qBwYUf6gb4UjkxkE8";
+const urlCalendy = "";
 const url1 = "";
 const url2 = ""; 
 const url3 = ""; 
@@ -47,18 +53,20 @@ const url7 = "";
 const url8 = "";
 const url9 = "";
 const url10 = "";
-const mensajeWhats = encodeURIComponent("¡Hola!");
-const mensajeCompartir = encodeURIComponent("Sonríe con confianza.");
-const mensajeGmail = encodeURIComponent("¡Hola!");
+const mensajeWhats = encodeURIComponent("Buenas tardes, gracias por comunicarte a *Andamios de León Sucursal Matriz*. \n¿En qué te podemos ayudar?");
+const mensajeWhats2 = encodeURIComponent("Buenas tardes, gracias por comunicarte a *Andamios de León Sucursal Manzanares*. \n¿En qué te podemos ayudar?");
+const mensajeCompartir = encodeURIComponent("Le damos altura a tus proyectos.");
+const mensajeGmail = encodeURIComponent("Me interesa rentar sus servicios.");
 
 // Cargar imágenes sin que truene si no existen
 let iconRewind, iconPlay, iconPause, iconForward, iconMute, iconVol, iconMenu;
-let iconGmail, iconWhats, iconCalendy;
+let iconCalendy;
 let iconGallery1, iconGallery2, iconGallery3, iconGallery4, iconGallery5;
 let iconPDF1, iconPDF2, iconPDF3, iconPDF4, iconPDF5, iconPDF6, iconPDF7, iconPDF8, iconPDF9, iconPDF10;
 let iconurl1, iconurl2, iconurl3, iconurl4, iconurl5, iconurl6, iconurl7, iconurl8, iconurl9, iconurl10;
 let iconMiWa, iconMiMail, iconReport;
 let iconVisor, iconHome, iconAnuncio, iconComida, iconBebidas, iconPostres;
+let iconSeccionA, iconSeccionB, iconSeccionC;
 
 try { iconRewind = require('../assets/preview.png'); } catch {}
 try { iconPlay = require('../assets/play.png'); } catch {}
@@ -68,7 +76,6 @@ try { iconMute = require('../assets/silencio.png'); } catch {}
 try { iconVol = require('../assets/volumen.png'); } catch {}
 
 
-try { iconGmail = require('../assets/gmail.png'); } catch {}
 try { iconWhats = require('../assets/wa.png'); } catch {}
 
 
@@ -113,6 +120,12 @@ try { iconAnuncio = require('../assets/anuncio.png'); } catch {}
 try { iconComida = require('../assets/menu/comida.png'); } catch {}
 try { iconBebidas = require('../assets/menu/bebidas.png'); } catch {}
 try { iconPostres = require('../assets/menu/postres.png'); } catch {}
+
+try { iconSeccionA = require('../assets/secciones/seccionA.png'); } catch {}
+try { iconSeccionB = require('../assets/secciones/seccionB.png'); } catch {}
+try { iconSeccionC = require('../assets/secciones/seccionC.png'); } catch {}
+
+
 
 try { iconReport = require('../assets/informes.png'); } catch {}
 
@@ -195,6 +208,10 @@ const Botones = ({cambiarComponente, onPlayPause, onRewind, onForward, onToggleM
     window.open(`https://wa.me/${telefonoWA}?text=${mensajeWhats}`, "_blank");
   };
   
+  const abrirWhatsApp2 = () => {
+    window.open(`https://wa.me/${telefonoWA2}?text=${mensajeWhats2}`, "_blank");
+  };
+  
   
     const abrirMiGmail = () => {
     const subject = encodeURIComponent("Informes");
@@ -209,6 +226,10 @@ const Botones = ({cambiarComponente, onPlayPause, onRewind, onForward, onToggleM
     window.location.href = `tel:${telefonoMovil}`;
   };
   
+    const llamar2 = () => {
+    window.location.href = `tel:${telefonoMovil2}`;
+  };
+  
   const abrirMaps = () => {
     window.open(urlMaps, "_blank");
   };
@@ -216,7 +237,7 @@ const Botones = ({cambiarComponente, onPlayPause, onRewind, onForward, onToggleM
 
   const compartir = async () => {
     const shareData = {
-      title: "Dentista",
+      title: "Andamios de León",
       text: decodeURIComponent(mensajeCompartir),
       url: window.location.href,
     };
@@ -514,6 +535,15 @@ const Botones = ({cambiarComponente, onPlayPause, onRewind, onForward, onToggleM
 		  case "postres":
 			cambiarComponente("postres");
 			break;
+		case "secciona":
+			cambiarComponente("secciona");
+			break;
+		case "seccionb":
+			cambiarComponente("seccionb");
+			break;
+		case "seccionc":
+			cambiarComponente("seccionc");
+			break;
 		  default:
 			console.warn("Componente no reconocido:", alt);
 		}
@@ -529,9 +559,11 @@ return (
     <div className="botones-container">
 	  {/* Reproductor */}
       <div className="reproductor">
-	  	{iconComida && <button onClick={cambiarVista}><img src={iconComida} alt="comida" /></button>}
-        {iconBebidas && <button onClick={cambiarVista}><img src={iconBebidas} alt="bebidas" /></button>}
-        {iconPostres && <button onClick={cambiarVista}><img src={iconPostres} alt="postres" /></button>}
+	  
+		{iconSeccionA && <button onClick={cambiarVista}><img src={iconSeccionA} alt="secciona" /></button>}
+		{iconSeccionB && <button onClick={cambiarVista}><img src={iconSeccionB} alt="seccionb" /></button>}
+		{iconSeccionC && <button onClick={cambiarVista}><img src={iconSeccionC} alt="seccionc" /></button>}
+
 			
         {iconMute && iconVol && (
           <button onClick={onToggleMute}>
@@ -589,7 +621,7 @@ return (
             {iconPhone && <button onClick={llamar}><img src={iconPhone} alt="Teléfono" /></button>}
             {iconMaps && <button onClick={abrirMaps}><img src={iconMaps} alt="Ubicación" /></button>}
             {iconShare && <button onClick={compartir}><img src={iconShare} alt="Compartir" /></button>}
-            {iconWhats && <button onClick={abrirWhatsApp}><img src={iconWhats} alt="WhatsApp" /></button>}
+				{/*{iconWhats && <button onClick={abrirWhatsApp}><img src={iconWhats} alt="WhatsApp" /></button>}*/}
 
             {/* Mis datos de Empresa */}
             {iconMiMail && <button onClick={abrirMiGmail}><img src={iconMiMail} alt="Gmail" /></button>}
@@ -602,6 +634,11 @@ return (
             {iconComida && <button onClick={cambiarVista}><img src={iconComida} alt="comida" /></button>}
             {iconBebidas && <button onClick={cambiarVista}><img src={iconBebidas} alt="bebidas" /></button>}
             {iconPostres && <button onClick={cambiarVista}><img src={iconPostres} alt="postres" /></button>}
+			
+			{iconSeccionA && <button onClick={cambiarVista}><img src={iconSeccionA} alt="secciona" /></button>}
+            {iconSeccionB && <button onClick={cambiarVista}><img src={iconSeccionB} alt="seccionb" /></button>}
+            {iconSeccionC && <button onClick={cambiarVista}><img src={iconSeccionC} alt="seccionc" /></button>}
+			
             {iconReportModal && <button onClick={abrirInformesModal}><img src={iconReportModal} alt="postres" /></button>}
 
 			
@@ -653,8 +690,10 @@ return (
 
             {/*{iconCalendy && <button onClick={abrirCalendy}><img src={iconCalendy} alt="Calendly" /></button>}*/}
             {iconGmail && <button onClick={abrirGmail}><img src={iconGmail} alt="Gmail" /></button>}
-            {/*{iconWhats && <button onClick={abrirWhatsApp}><img src={iconWhats} alt="WhatsApp" /></button>}*/}
-            {iconPhone && <button onClick={llamar}><img src={iconPhone} alt="Teléfono" /></button>}
+            {iconWhats && <button onClick={abrirWhatsApp}><img src={iconWhats} alt="WhatsApp" /></button>}
+            {iconWhats2 && <button onClick={abrirWhatsApp2}><img src={iconWhats2} alt="WhatsApp" /></button>}
+			{iconPhone && <button onClick={llamar}><img src={iconPhone} alt="Teléfono" /></button>}
+            {iconPhone2 && <button onClick={llamar2}><img src={iconPhone2} alt="Teléfono" /></button>}
             {iconMaps && <button onClick={abrirMaps}><img src={iconMaps} alt="Ubicación" /></button>}
             {iconShare && <button onClick={compartir}><img src={iconShare} alt="Compartir" /></button>}
             {iconReport && <button onClick={abrirModalMiAnuncio}><img src={iconReport} alt="Anuncio" /></button>}
@@ -664,9 +703,16 @@ return (
             {/*{iconMiWa && <button onClick={abrirMiWhatsApp}><img src={iconMiWa} alt="WhatsApp" /></button>}*/}
 			
 			{/* Visores */}
-            {iconVisor && <button onClick={cambiarVista}><img src={iconVisor} alt="visor" /></button>}
+            {/*{iconVisor && <button onClick={cambiarVista}><img src={iconVisor} alt="visor" /></button>}*/}
             {iconHome && <button onClick={cambiarVista}><img src={iconHome} alt="home" /></button>}
             {iconAnuncio && <button onClick={cambiarVista}><img src={iconAnuncio} alt="anuncio" /></button>}
+			
+			{/*{iconSeccionA && <button onClick={cambiarVista}><img src={iconSeccionA} alt="secciona" /></button>}*/}
+            {/*{iconSeccionB && <button onClick={cambiarVista}><img src={iconSeccionB} alt="seccionb" /></button>}*/}
+            {/*{iconSeccionC && <button onClick={cambiarVista}><img src={iconSeccionC} alt="seccionc" /></button>}*/}
+			
+
+
             {iconReportModal && <button onClick={abrirInformesModal}><img src={iconReportModal} alt="postres" /></button>}
           </motion.div>
         )}

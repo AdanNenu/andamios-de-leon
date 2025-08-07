@@ -1,0 +1,249 @@
+.seccion {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.productos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.imagen img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.caracteristicas {
+  margin-top: 10px;
+}
+
+.caracteristicas h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.caracteristicas p {
+  margin: 5px 0 0;
+  color: #555;
+}
+
+.boton {
+  margin-top: 15px;
+}
+
+.boton a {
+  background-color: #25d366;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.boton a:hover {
+  background-color: #1ebe57;
+}
+
+.logo-header {
+  width: auto;
+  height: 12rem; /* Tamaño base para desktop */
+  max-width: 90%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+
+.titulo-convencional {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: #333;
+}
+
+
+
+/* 💻 Landscape: Pantallas grandes (escritorio desde 1025px) */
+@media screen and (orientation: landscape) and (min-width: 1025px) {
+  .productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .producto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    background-color: #fff; /* opcional para mejor separación visual */
+    border-radius: 0.5rem;   /* opcional */
+  }
+
+  .imagen {
+    flex: 1;
+    max-width: 25rem;
+  }
+
+  .imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .caracteristicas {
+    flex: 2;
+    margin-top: 0;
+    font-size: 1.1rem;
+  }
+
+  .boton {
+    margin-top: 1rem;
+  }
+}
+
+/* 📱 Landscape: Tablets y pantallas pequeñas en horizontal */
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+  .producto {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .imagen {
+    flex: 1 1 45%;
+    max-width: 20rem;
+  }
+
+  .imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .caracteristicas {
+    flex: 1 1 45%;
+    font-size: 1rem;
+    margin-top: 0;
+  }
+
+  .boton {
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+   .logo-header {
+  width: auto;
+  height: 9rem; /* Tamaño base para desktop */
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+
+}
+
+/* 📲 Portrait: Móviles y pantallas verticales */
+@media screen and (orientation: portrait) {
+  .producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .imagen {
+    width: 90%;
+    max-width: 18rem;
+  }
+
+  .imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .caracteristicas {
+    text-align: center;
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .boton {
+    margin-top: 1rem;
+  }
+  
+  .logo-header {
+  width: auto;
+  height: 9rem; /* Tamaño base para desktop */
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+
+}
+
+/* Tablets en portrait con pantalla suficientemente ancha */
+@media screen and (orientation: portrait) and (min-width: 600px) {
+  .productos {
+    padding: 1rem;
+  }
+
+  .producto {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Este cambio es clave */
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+
+  .imagen {
+    flex: 1;
+    max-width: 25rem;
+  }
+
+  .imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  .caracteristicas,
+  .boton {
+    flex: 2;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+
+
+
+.fondo-repetido {
+  background-image: url('./fondo.png'); /* O .png si aplica */
+  background-repeat: repeat;
+   background-size: 200px 200px; /* o ponle un tamaño específico como 100px 100px si quieres que el patrón sea más pequeño */
+  background-position: top left;
+}
+
