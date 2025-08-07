@@ -1,12 +1,13 @@
-// SeccionB.js
+// SeccionA.js
 import React from 'react';
 import './EstiloSecciones.css';
+import { motion } from 'framer-motion';
 
 // Datos de productos separados arriba
 const productos = [
   {
     titulo: 'Andamio Especial',
-    descripcion: 'Descripción del producto especial.',
+    descripcion: 'Descripción del producto especial. Descripción del producto especial. Descripción del producto especial.',
     imagen: '/seccionA/1.jpg',
     mensajeWhatsapp: 'Hola, me interesa el modelo *Andamio Especial*. ¿Podrías darme más información?'
   },
@@ -19,35 +20,60 @@ const productos = [
 ];
 
 const SeccionC = () => {
-  return (
-    <div className="seccion">
-      <header className="header">
-        <h1>Andamios Especiales</h1>
-      </header>
-      <div className="productos">
-        {productos.map((producto, index) => (
-          <div className="producto" key={index}>
-            <div className="imagen">
-              <img src={producto.imagen} alt={producto.titulo} />
-            </div>
-            <div className="caracteristicas">
-              <h2>{producto.titulo}</h2>
-              <p>{producto.descripcion}</p>
-            </div>
+return (
+<div className="seccion fondo-repetido">
+    <header className="header">
+      <motion.img
+        src="/logo.png"
+        alt="Logo"
+        className="logo-header"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.4 }}
+      />
+      <motion.h1
+        className="titulo-convencional"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.4 }}
+      >
+        Convencional
+      </motion.h1>
+    </header>
+
+    <div className="productos">
+      {productos.map((producto, index) => (
+        <motion.div
+          className="producto"
+          key={index}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: index * 0.3, type: 'spring' }}
+        >
+          <div className="imagen">
+            <img src={producto.imagen} alt={producto.titulo} />
+          </div>
+
+          {/* BOTÓN MOVIDO DENTRO DE CARACTERÍSTICAS */}
+          <div className="caracteristicas">
+            <h2>{producto.titulo}</h2>
+            <p>{producto.descripcion}</p>
             <div className="boton">
               <a
-                href={`https://wa.me/5211234567890?text=${encodeURIComponent(producto.mensajeWhatsapp)}`}
+                href={`https://wa.me/524775770721?text=${encodeURIComponent(producto.mensajeWhatsapp)}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Preguntar por este
+                Pedir Informes
               </a>
             </div>
           </div>
-        ))}
-      </div>
+        </motion.div>
+      ))}
     </div>
-  );
+  </div>
+);
+
 };
 
 export default SeccionC;

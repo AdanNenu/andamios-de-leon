@@ -819,7 +819,7 @@ return (
         transition={{ duration: 0.3, delay: 0.4 }}
       >
         <button onClick={() => window.open(urlMiSitioWeb, "_blank")}>
-          Visitar Web
+          Obtener mi App
         </button>
         <button onClick={cerrarInformesModal}>Cerrar</button>
       </motion.div>
