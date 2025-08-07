@@ -1,17 +1,24 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import "./Video.css";
 
-import miVideo from "../assets/video.mp4";
-import miVideoH from "../assets/videoh.mp4";
-
 const Video = forwardRef(({ onVideoClick }, ref) => {
-  // ✅ Aquí adentro van tus hooks y lógica
-  const [videoSrc, setVideoSrc] = useState(miVideo);
+  const [videoSrc, setVideoSrc] = useState(null);
 
   const elegirVideo = () => {
     const isLandscape = window.innerWidth > window.innerHeight;
-    const seleccionado = isLandscape ? miVideoH : miVideo;
-    setVideoSrc(seleccionado);
+    let src = null;
+
+    try {
+      if (isLandscape) {
+        src = require("../assets/videoh.mp4");
+      } else {
+        src = require("../assets/video.mp4");
+      }
+    } catch (err) {
+      console.warn("No se encontró el video correspondiente.");
+    }
+
+    setVideoSrc(src);
   };
 
   useEffect(() => {
@@ -22,15 +29,17 @@ const Video = forwardRef(({ onVideoClick }, ref) => {
 
   return (
     <div className="video-container" onClick={onVideoClick}>
-      <video
-        ref={ref}
-        src={videoSrc}
-        className="video-element " // <-- Ojo, cambia esto si sigues la recomendación anterior
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
+      {videoSrc && (
+        <video
+          ref={ref}
+          src={videoSrc}
+          className="video-element"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+      )}
     </div>
   );
 });
