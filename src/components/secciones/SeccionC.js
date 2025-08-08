@@ -10,13 +10,13 @@ const productos = [
     titulo: 'Andamio Especial',
     descripcion: 'Descripción del producto especial. Descripción del producto especial. Descripción del producto especial.',
     imagen: '/seccionA/1.jpg',
-    mensajeWhatsapp: 'Hola, me interesa el modelo *Andamio Especial*. ¿Podrías darme más información?'
+    mensajeWhatsapp: 'Hola, me interesa el modelo *Andamio Especial.*\n¿Podrías darme más información?'
   },
   {
     titulo: 'Andamio Industrial',
     descripcion: 'Ideal para trabajos pesados en construcción.',
     imagen: '/seccionA/2.jpg',
-    mensajeWhatsapp: 'Hola, me interesa el modelo *Andamio Industrial*. ¿Podrías darme más información?'
+    mensajeWhatsapp: 'Hola, me interesa el modelo *Andamio Industrial.*\n¿Podrías darme más información?'
   }
 ];
 
@@ -43,7 +43,7 @@ return (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.4 }}
       >
-        Convencional
+        Seccion C
       </motion.h1>
     </header>
 

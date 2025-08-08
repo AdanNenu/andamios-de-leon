@@ -53,9 +53,9 @@ const url7 = "";
 const url8 = "";
 const url9 = "";
 const url10 = "";
-const mensajeWhats = encodeURIComponent("Buenas tardes, gracias por comunicarte a *Andamios de León Sucursal Matriz*. \n¿En qué te podemos ayudar?");
-const mensajeWhats2 = encodeURIComponent("Buenas tardes, gracias por comunicarte a *Andamios de León Sucursal Manzanares*. \n¿En qué te podemos ayudar?");
-const mensajeCompartir = encodeURIComponent("Le damos altura a tus proyectos.");
+const mensajeWhats = encodeURIComponent("Buenas tardes, gracias por comunicarte a\n*Andamios de León Sucursal Matriz.* \n¿En qué te podemos ayudar?");
+const mensajeWhats2 = encodeURIComponent("Buenas tardes, gracias por comunicarte a\n*Andamios de León Sucursal Manzanares.* \n¿En qué te podemos ayudar?");
+const mensajeCompartir = encodeURIComponent("Le damos altura a sus proyectos.");
 const mensajeGmail = encodeURIComponent("Me interesa rentar sus servicios.");
 
 // Cargar imágenes sin que truene si no existen
@@ -199,24 +199,47 @@ const Botones = ({cambiarComponente, onPlayPause, onRewind, onForward, onToggleM
 	  setMiniModal(null);
 	};
 
-  const abrirGmail = () => {
-    const subject = encodeURIComponent("Informes");
-    window.location.href = `mailto:${correoGmail}?subject=${subject}&body=${mensajeGmail}`;
-  };
+	const abrirGmail = () => {
+	  const subject = "Informes"; // sin encode para que se vea bien en móvil
+	  const mensaje = "Me interesa rentar sus servicios.";
+	  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  const abrirWhatsApp = () => {
-    window.open(`https://wa.me/${telefonoWA}?text=${mensajeWhats}`, "_blank");
-  };
+	  if (isMobile) {
+		// Móvil → texto sin encode para que se vea bien en la app
+		window.location.href = `mailto:${correoGmail}?subject=${subject}&body=${mensaje}`;
+	  } else {
+		// PC → encode para Gmail web
+		const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${correoGmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(mensaje)}`;
+		window.open(gmailURL, "_blank");
+	  }
+	};
+
+
+
+	  const abrirWhatsApp = () => {
+		window.open(`https://wa.me/${telefonoWA}?text=${mensajeWhats}`, "_blank");
+	  };
+	  
+	  const abrirWhatsApp2 = () => {
+		window.open(`https://wa.me/${telefonoWA2}?text=${mensajeWhats2}`, "_blank");
+	  };
   
-  const abrirWhatsApp2 = () => {
-    window.open(`https://wa.me/${telefonoWA2}?text=${mensajeWhats2}`, "_blank");
-  };
   
-  
-    const abrirMiGmail = () => {
-    const subject = encodeURIComponent("Informes");
-    window.location.href = `mailto:${miMail}?subject=${subject}&body=${"¡Hola!"}`;
-  };
+	const abrirMiGmail = () => {
+	  const subject = "Informes"; // sin encode para que se vea bien en móvil
+	  const mensaje = "Me interesa rentar sus servicios.";
+	  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+	  if (isMobile) {
+		// Móvil → texto sin encode para que se vea bien en la app
+		window.location.href = `mailto:${miMail}?subject=${subject}&body=${mensaje}`;
+	  } else {
+		// PC → encode para Gmail web
+		const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${miMail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(mensaje)}`;
+		window.open(gmailURL, "_blank");
+	  }
+	};
+
 
   const abrirMiWhatsApp = () => {
     window.open(`https://wa.me/${miWa}?text=${"¡Hola!"}`, "_blank");

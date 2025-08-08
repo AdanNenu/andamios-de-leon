@@ -71,6 +71,8 @@
   flex-direction: row;
   gap: 1vh;
   margin-left: 2vh;
+  
+
 }
 
 .apps {
@@ -86,6 +88,20 @@
   width: 5vh !important;
   height: 6vh !important;
   
+  }
+  
+  
+  .botones-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+	
+	background-color: rgba(234, 215, 79, 0.3); /* dorado con transparencia */
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+
   }
 
 }
@@ -103,7 +119,7 @@ button {
 /*Modifica Botonera Escritorio y tablewt Landscapes*/
 @media screen and (orientation: landscape) and (min-width: 1025px)  {
   .botones-container {
-    position: absolute; /* o fixed si quieres que quede siempre visible */
+    position: fixed; /* o fixed si quieres que quede siempre visible */
     right: 0%;
     top: 50%;
     transform: translateY(-50%);
@@ -113,7 +129,9 @@ button {
     gap: 10px; /* espacio entre botones */
     background-color: transparent;
 	justify-content: flex-end;
-	background: linear-gradient(to left, #B0B0B0 1%, transparent);
+	background-color: rgba(234, 215, 79, 0.3); /* dorado con transparencia */
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
 	
   }
 
@@ -136,7 +154,7 @@ button {
 /* Modifica Botonera celulares Landscape */
 @media screen and (orientation: landscape) and (max-width: 1024px) {
   .botones-container {
-    position: absolute;
+    position: fixed;
     right: 0%;
     top: 0;
     bottom: 0;
@@ -149,7 +167,9 @@ button {
     gap: 8vh;
     overflow-y: auto; /* Permite scroll */
 	justify-content: flex-end;
-	background: linear-gradient(to left, #B0B0B0 1%, transparent);
+	background-color: rgba(234, 215, 79, 0.3); /* dorado con transparencia */
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
 	padding: 2vh 2vh 2vh 2vh !important;
   }
 
@@ -420,6 +440,7 @@ button {
    .botones-container {
   	min-height: 100vh;
 	max-height: 100vh;
+	position: fixed; /* se integra al flujo del contenido */
    }
 
   .apps-colapsadas img {

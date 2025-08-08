@@ -14,34 +14,39 @@ import SeccionC from './components/secciones/SeccionC';
 
 
 function App() {
-  const [componenteActivo, setComponenteActivo] = useState('home');
+  const [componenteActivo, setComponenteActivo] = useState('secciona');
 
+  // Cada vez que cambia la sección activa
   useEffect(() => {
-    window.scrollTo(0, 1);
-  }, []);
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      const contenedor = document.querySelector('.contenido-principal');
+      if (contenedor) contenedor.scrollTop = 0;
+    });
+  }, [componenteActivo]);
 
   const renderComponente = () => {
     switch (componenteActivo) {
       case 'home':
-        return <Home />;
+        return <Home key="home" />;
       case 'visor':
-        return <Visor />;
+        return <Visor key="visor" />;
       case 'anuncio':
-        return <Anuncio />;
-	  case 'comida':
-        return <Comida />;
-	  case 'bebidas':
-        return <Bebidas />;
-	  case 'postres':
-        return <Postres />;
-	  case 'secciona':
-        return <SeccionA />;
+        return <Anuncio key="anuncio" />;
+      case 'comida':
+        return <Comida key="comida" />;
+      case 'bebidas':
+        return <Bebidas key="bebidas" />;
+      case 'postres':
+        return <Postres key="postres" />;
+      case 'secciona':
+        return <SeccionA key="secciona" />;
       case 'seccionb':
-        return <SeccionB />;
-	  case 'seccionc':
-        return <SeccionC />; 		
+        return <SeccionB key="seccionb" />;
+      case 'seccionc':
+        return <SeccionC key="seccionc" />;
       default:
-        return <Home />;
+        return <Home key="home" />;
     }
   };
 
